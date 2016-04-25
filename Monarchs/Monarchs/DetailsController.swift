@@ -10,6 +10,8 @@ import UIKit
 
 class DetailsController: UIViewController {
 
+    @IBOutlet weak var pictureTaken: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
