@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Details Controller-->
@@ -123,19 +124,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGb-2L-rHz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UGb-2L-rHz">
                                 <rect key="frame" x="81" y="338" width="458" height="146"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2i-Yn-fGG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2i-Yn-fGG">
                                 <rect key="frame" x="128" y="92" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxO-2a-teP">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxO-2a-teP">
                                 <rect key="frame" x="81" y="154" width="458" height="163"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0rT-Tv-QMo">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rT-Tv-QMo">
                                 <rect key="frame" x="-1" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem title="Login" id="iut-ai-uMk"/>
@@ -155,6 +156,23 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GfR-YV-LId" firstAttribute="top" secondItem="0rT-Tv-QMo" secondAttribute="bottom" id="3v5-T9-kTS"/>
+                            <constraint firstAttribute="bottom" secondItem="uxO-2a-teP" secondAttribute="bottom" constant="283" id="HaW-qT-95P"/>
+                            <constraint firstItem="uxO-2a-teP" firstAttribute="leading" secondItem="UGb-2L-rHz" secondAttribute="leading" id="JAP-mk-rxK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uxO-2a-teP" secondAttribute="trailing" constant="41" id="NDG-MA-PeV"/>
+                            <constraint firstItem="uxO-2a-teP" firstAttribute="leading" secondItem="MY6-nJ-Fyq" secondAttribute="leadingMargin" constant="61" id="Ni5-is-uEO"/>
+                            <constraint firstItem="e2i-Yn-fGG" firstAttribute="centerX" secondItem="MY6-nJ-Fyq" secondAttribute="centerX" id="SW4-UL-E71"/>
+                            <constraint firstItem="0rT-Tv-QMo" firstAttribute="top" secondItem="UGb-2L-rHz" secondAttribute="bottom" constant="72" id="UAV-PJ-4HY"/>
+                            <constraint firstItem="e2i-Yn-fGG" firstAttribute="top" secondItem="pO0-yM-DXW" secondAttribute="bottom" constant="28" id="eCO-5Z-kKb"/>
+                            <constraint firstItem="uxO-2a-teP" firstAttribute="trailing" secondItem="UGb-2L-rHz" secondAttribute="trailing" id="eDJ-aJ-hfq"/>
+                            <constraint firstItem="e2i-Yn-fGG" firstAttribute="leading" secondItem="MY6-nJ-Fyq" secondAttribute="leadingMargin" constant="108" id="gGt-3q-Qi7"/>
+                            <constraint firstItem="0rT-Tv-QMo" firstAttribute="leading" secondItem="MY6-nJ-Fyq" secondAttribute="leadingMargin" constant="-21" id="oAv-f9-A6V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e2i-Yn-fGG" secondAttribute="trailing" constant="109" id="pec-PG-XEL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0rT-Tv-QMo" secondAttribute="trailing" constant="-19" id="roQ-fr-Czk"/>
+                            <constraint firstItem="uxO-2a-teP" firstAttribute="top" secondItem="e2i-Yn-fGG" secondAttribute="bottom" constant="32" id="scz-7f-pEl"/>
+                            <constraint firstItem="UGb-2L-rHz" firstAttribute="top" secondItem="uxO-2a-teP" secondAttribute="bottom" constant="21" id="uUj-a1-cAH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Take a Photo" id="cQY-PK-q2e"/>
                     <connections>
