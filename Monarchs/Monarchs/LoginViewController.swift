@@ -9,8 +9,33 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
-    @IBOutlet weak var LoginDisplay: UILabel!
+    
+    @IBOutlet weak var classCodeField: UITextField!
+    @IBOutlet weak var loginNameField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var classCode: String?
+    var loginName: String?
+    
+   
+    
+    @IBAction func clickedLogin(sender: AnyObject) {
+        classCode = classCodeField.text
+        loginName = loginNameField.text
+        
+        //Authenticate 
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

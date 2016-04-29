@@ -11,21 +11,28 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
     
-    @IBOutlet weak var loginInfo: UITextField!
-    @IBOutlet weak var capturedImage: UIImageView!
+    @IBOutlet weak var loginInfo: UILabel!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var loginButton: UIBarButtonItem!
-
+    
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    var image: UIImage?
     
 
+    @IBAction func loginClicked(sender: UIBarButtonItem) {
+        //.self?????
+        self.performSegueWithIdentifier("Login Segue", sender: loginButton)
+        
+    }
+    
+    
     @IBAction func aboutClicked(sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "About", message: "Monarchs etc etc", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "About", message: "Notes about monarch season, the app, etc.", preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addAction(UIAlertAction(title: "About", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
@@ -40,11 +47,14 @@ class CameraViewController: UIViewController {
                     let dataProvider = CGDataProviderCreateWithCFData(imageData)
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
                     
-                    let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-                    self.capturedImage.image = image
+                    self.image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
+//                    self.capturedImage.image = image
                 }
             })
         }
+        
+        self.performSegueWithIdentifier("Pass Image", sender: self.image)
+        
     }
 
     
@@ -97,7 +107,6 @@ class CameraViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,14 +115,22 @@ class CameraViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "Pass Image" {
+            let a = segue.destinationViewController as! DetailsController
+            a.capturedImage = sender as? UIImage
+//            a.capturedImage = self.image
+        }
+        
         // Pass the selected object to the new view controller.
+        
+        
     }
-    */
+ 
 
 }
