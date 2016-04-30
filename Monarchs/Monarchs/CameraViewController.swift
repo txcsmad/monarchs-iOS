@@ -37,11 +37,13 @@ class CameraViewController: UIViewController {
         
     }
     
+    
     @IBAction func didPressTakePhoto(sender: UIBarButtonItem) {
         
         if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+                
                 if (sampleBuffer != nil) {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider = CGDataProviderCreateWithCFData(imageData)
@@ -49,11 +51,12 @@ class CameraViewController: UIViewController {
                     
                     self.image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
 //                    self.capturedImage.image = image
+                    self.performSegueWithIdentifier("Pass Image", sender: self.image)
                 }
             })
         }
         
-        self.performSegueWithIdentifier("Pass Image", sender: self.image)
+
         
     }
 
@@ -62,8 +65,8 @@ class CameraViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        view.sendSubviewToBack(previewView)
         
-        captureSession = AVCaptureSession()
         captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
         
         let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -95,6 +98,11 @@ class CameraViewController: UIViewController {
         }
         
         
+        if let currentUser = Network.currentUser {
+            loginInfo.text = "You are logged in as " + currentUser.loginName
+        }
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -104,7 +112,7 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        captureSession = AVCaptureSession()
         // Do any additional setup after loading the view.
         
     }
@@ -124,7 +132,7 @@ class CameraViewController: UIViewController {
         if segue.identifier == "Pass Image" {
             let a = segue.destinationViewController as! DetailsController
             a.capturedImage = sender as? UIImage
-//            a.capturedImage = self.image
+
         }
         
         // Pass the selected object to the new view controller.

@@ -24,8 +24,15 @@ class LoginViewController: UIViewController {
         loginName = loginNameField.text
         
         //Authenticate 
+        Network.login(classCode!, loginName: loginName!) {
+            success in
+            if success {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                //Alert!!
+            }
+        }
         
-        navigationController?.popViewControllerAnimated(true)
     }
     
     

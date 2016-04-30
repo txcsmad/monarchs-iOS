@@ -15,6 +15,8 @@ class DetailsController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     var capturedImage: UIImage?
     var notes: String?
+    var capturedImageRef = UIImage()
+
     
     @IBAction func submitPhoto(sender: AnyObject) {
         
