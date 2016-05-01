@@ -14,7 +14,8 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var loginInfo: UILabel!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var loginButton: UIBarButtonItem!
-    
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+   
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -89,17 +90,28 @@ class CameraViewController: UIViewController {
                 captureSession!.addOutput(stillImageOutput)
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewView.layer.addSublayer(previewLayer!)
                 
+                //Make the preview layer fill the whole screen.
+                let previewBounds : CGRect = previewView.layer.bounds
+                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                previewLayer?.bounds = previewBounds
+                previewLayer?.position = CGPointMake(CGRectGetMidX(previewBounds), CGRectGetMidY(previewBounds))
+
+            
+                previewView.layer.addSublayer(previewLayer!)
                 captureSession!.startRunning()
             }
         }
         
-        
-        if let currentUser = Network.currentUser {
-            loginInfo.text = "You are logged in as " + currentUser.loginName
+        if Network.loggedIn() ?? true  {
+            //If user is already logged in set name
+            if let currentUser = Network.currentUser {
+                loginInfo.text = "You are logged in as " + currentUser.loginName
+            }
+        } else {
+            //Other wise don't show a name. 
+            loginInfo.text = ""
         }
         
         
@@ -114,6 +126,10 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         captureSession = AVCaptureSession()
         // Do any additional setup after loading the view.
+        
+        //Style the bottom bar to be clear. 
+       
+        
         
     }
 

@@ -13,6 +13,7 @@
 		5041688D1CC70359006E2C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5041688C1CC70359006E2C9C /* Main.storyboard */; };
 		50995E881CD401A300BB2A12 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50995E871CD401A300BB2A12 /* Network.swift */; };
 		50995E8A1CD4077A00BB2A12 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50995E891CD4077A00BB2A12 /* User.swift */; };
+		CE48AB891CD581A300BB0210 /* BorederedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48AB881CD581A300BB0210 /* BorederedTextField.swift */; };
 		CE4DB7751CC5F19B00452128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DB7741CC5F19B00452128 /* AppDelegate.swift */; };
 		CE4DB7771CC5F19B00452128 /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DB7761CC5F19B00452128 /* DetailsController.swift */; };
 		CE4DB77C1CC5F19B00452128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4DB77B1CC5F19B00452128 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		50995E891CD4077A00BB2A12 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B05A74344031BECF987456DA /* Pods_Monarchs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monarchs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83EC2EDC4A3C1383BE65624 /* Pods-Monarchs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monarchs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Monarchs/Pods-Monarchs.release.xcconfig"; sourceTree = "<group>"; };
+		CE48AB881CD581A300BB0210 /* BorederedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorederedTextField.swift; sourceTree = "<group>"; };
 		CE4DB7711CC5F19B00452128 /* Monarchs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monarchs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4DB7741CC5F19B00452128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4DB7761CC5F19B00452128 /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				CE4DB7801CC5F19B00452128 /* Info.plist */,
 				50995E871CD401A300BB2A12 /* Network.swift */,
 				50995E891CD4077A00BB2A12 /* User.swift */,
+				CE48AB881CD581A300BB0210 /* BorederedTextField.swift */,
 			);
 			path = Monarchs;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50995E881CD401A300BB2A12 /* Network.swift in Sources */,
+				CE48AB891CD581A300BB0210 /* BorederedTextField.swift in Sources */,
 				501E368D1CC8426D0088667A /* LoginViewController.swift in Sources */,
 				50995E8A1CD4077A00BB2A12 /* User.swift in Sources */,
 				501E368F1CC844890088667A /* CameraViewController.swift in Sources */,
