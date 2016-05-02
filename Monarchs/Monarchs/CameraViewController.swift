@@ -50,7 +50,7 @@ class CameraViewController: UIViewController {
                     let cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, CGColorRenderingIntent.RenderingIntentDefault)
                     
                     self.image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-//                    self.capturedImage.image = image
+
                     self.performSegueWithIdentifier("Pass Image", sender: self.image)
                 }
             })
@@ -134,8 +134,6 @@ class CameraViewController: UIViewController {
             a.capturedImage = sender as? UIImage
 
         }
-        
-        // Pass the selected object to the new view controller.
         
         
     }
