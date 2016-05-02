@@ -10,7 +10,8 @@ import Foundation
 
 class Network {
 
-    static var isLoggedin: Bool?
+    //By default user is not logged in 
+    static var isLoggedin: Bool? = false
     static var currentUser: User?
     
     static func login(classCode: String, loginName: String, completionHandler: (Bool) -> Void) {
@@ -20,6 +21,10 @@ class Network {
         completionHandler(isLoggedin!)
         
       
+    }
+    
+    static func loggedIn() -> Bool! {
+        return isLoggedin!
     }
 
 
